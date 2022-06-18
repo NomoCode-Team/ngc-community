@@ -1,0 +1,51 @@
+
+platform: Docker/node
+
+do:
+  - var:
+      name: port
+      value: 8080
+  - ws/Server/create:
+      args:
+        port: port
+      return: wss
+  - Console/log:
+      args:
+        text: >-
+          `listening on port ${port}`
+  - function:
+      name: newConnectionCallback
+      args:
+        ws: ws.WebSocket
+      do:
+        - Console/log:
+            args:
+              text: >-
+                'New client connected!'
+        - function:
+            name: clientNewMessageCallback
+            args:
+              message: string
+            do:
+              - Console/log:
+                  args:
+                    text: >-
+                      'message: ' + message
+              - ws/WebSocket/send:
+                  args:
+                    socket: ws
+                    data: >-
+                      'echo: ' + message
+        - ws/WebSocket/on:
+            args:
+              event: >-
+                'message'
+              socket: ws
+              callback: clientNewMessageCallback
+
+  - ws/Server/on:
+      args:
+        event: >-
+          'connection'
+        server: wss
+        callback: newConnectionCallback

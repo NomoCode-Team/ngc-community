@@ -1,0 +1,13 @@
+from: HTML/base
+
+do: 
+  - PixiJS/createApp:
+      return: pixi_app
+  - PixiJS/getAppView:
+      args:
+        app: pixi_app
+      return: view
+  - DOM/HTML/appendChild:
+      args:
+        parent: document.body
+        child: view

@@ -1,0 +1,42 @@
+from: HTML/base
+
+do:
+  - MatterJS/Engine/create:
+      return: engine
+  - MatterJS/Render/create:
+      args:
+        engine: engine
+        element: document.body
+      return: render
+  - MatterJS/Bodies/createRectangle:
+      args:
+        position: "{x: 400, y: 200}"
+        width: 80
+        height: 80
+      return: boxA
+  - MatterJS/Bodies/createRectangle:
+      args:
+        position: "{x: 450, y: 50}"
+        width: 80
+        height: 80
+      return: boxB
+  - MatterJS/Bodies/createRectangle:
+      args:
+        position: "{x: 400, y: 610}"
+        width: 810
+        height: 60
+        isStatic: true
+      return: ground
+  - MatterJS/Composite/add:
+      args:
+        composite: engine.world
+        bodies: "[boxA,boxB,ground]"
+  - MatterJS/Render/run:
+      args:
+        render: render
+  - MatterJS/Runner/create:
+      return: runner
+  - MatterJS/Runner/run:
+      args:
+        runner: runner
+        engine: engine

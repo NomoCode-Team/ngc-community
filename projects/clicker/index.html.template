@@ -1,0 +1,7 @@
+{% extends "projects/HTML/base/index.html.template" %}
+{% block content %}
+        <img class="image" src="light_background.png">
+        <img class="falling_bread" src="PusheenBread.png" alt="">
+        <img class="bread" src="PusheenBread.png" alt="" onclick="addBread()">
+        <font id="txt" class="counter">0 breads</font>
+{% endblock %}

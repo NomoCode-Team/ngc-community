@@ -1,0 +1,56 @@
+{% include "projects/HTML/base/style.css.template" %} 
+
+.image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1200px;
+    height: 1200px;
+    margin:-600px 0 0 -600px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+.counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -200px;
+    margin-top: -400px;
+    font: 100px 'Brush Script MT', cursive;
+    text-align: left;
+}
+.bread {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 200px;
+    margin:-120px 0 0 -170px;
+    
+}
+
+@keyframes falling_anim {
+    0%   {opacity: 1; margin-top: -800px;}
+    50%   {opacity: 1; margin-top: -400px;}
+    100% {opacity: 0; margin-top: 0px;}
+}
+
+.falling_bread {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    animation-name: falling_anim;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+body {
+    overflow: hidden; /* Hide scrollbars */
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

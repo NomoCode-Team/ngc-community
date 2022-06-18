@@ -1,0 +1,63 @@
+from: HTML/base
+
+do:
+  - Three/PerspectiveCamera/create:
+      args:
+        fov: 75
+        aspect: window.innerWidth / window.innerHeight
+        near: 0.1
+        far: 1000
+      return: camera
+  - Three/Vector3/set:
+      args:
+        vector: camera.position
+        value: "{x: 0, y: 0, z: 1}"
+  - Three/Scene/create:
+      return: scene
+  - Three/BoxGeometry/create:
+      args:
+        width: 0.4
+        height: 0.4
+        depth: 0.4
+      return: geometry
+  - Three/MeshNormalMaterial/create:
+      return: material
+  - Three/Mesh/create:
+      args:
+        geometry: geometry
+        material: material
+      return: mesh
+  - Three/Scene/add:
+      args:
+        scene: scene
+        object: mesh
+  - Three/WebGLRenderer/create:
+      return: renderer
+  - Three/Renderer/setSize:
+      args:
+        renderer: renderer
+        width: window.innerWidth
+        height: window.innerHeight
+  - Three/WebGLRenderer/setAnimationLoop:
+      args:
+        renderer: renderer
+        callback: animation
+  - DOM/HTML/appendChild:
+      args:
+        parent: document.body
+        child: renderer.domElement
+  - function:
+      name:
+        animation
+      args:
+        time: number
+      do:
+        - Three/Vector3/set:
+            args:
+              vector: mesh.rotation
+              value: "{x: time / 2000, y: time / 1000, z: 0}"
+        - Three/Renderer/render:
+            args:
+              renderer: renderer
+              scene: scene
+              camera: camera
