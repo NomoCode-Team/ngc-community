@@ -1,0 +1,6 @@
+HTML:
+  base:
+    background-color: '#262626'
+    footer:
+      color: white
+    hide-scrollbars: false

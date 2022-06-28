@@ -1,18 +1,21 @@
 body {
+{% if HTML.base['hide-scrollbars'] == true %}
     overflow: hidden; /* Hide scrollbars */
-    background-color: #262626
+{% endif %}
+    background-color: {{ HTML.base['background-color'] }};
 }
 
 .footer {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
-    color: white;
+    color: {{ HTML.base.footer.color }};
     text-align: center;
  }
 
  html, body, div, canvas {
     margin: 0;
     padding: 0;
-}
+    color: #c2c2c2;
+ }

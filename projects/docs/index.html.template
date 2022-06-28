@@ -1,0 +1,31 @@
+{% extends "projects/HTML/base/index.html.template" %}
+{% block content %}
+
+
+
+<div class="sidenav">
+  <a href="#" onclick="setPage('introduction.html');return false;">Introduction</a>
+</div>
+
+<div class="main" id="page-content"></div>
+
+<script defer>
+    function loadFile(filePath) {
+        var result = null;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", filePath, false);
+        xmlhttp.send();
+        if (xmlhttp.status==200) {
+            result = xmlhttp.responseText;
+        }
+        return result;
+    }
+    function setPage(page) {
+        const page_div = document.getElementById('page-content')
+        page_div.innerHTML = loadFile('content/' + page)
+    }
+    setPage('introduction.html')
+</script>
+
+
+{% endblock %}
