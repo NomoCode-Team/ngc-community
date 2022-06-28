@@ -5,6 +5,7 @@
 
 <div class="sidenav">
   <a href="#" onclick="setPage('introduction.html');return false;">Introduction</a>
+  <a href="#" onclick="setPage('getting-started.html');return false;">Getting started</a>
 </div>
 
 <div class="main" id="page-content"></div>
