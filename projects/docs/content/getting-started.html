@@ -8,13 +8,75 @@ NGC is accessed through remote workspace called sandbox. If you don't have an ac
 Code in sandbox is managed by git version control system. Sandbox can use multiple git repositories (private or public) and there is also one special - <a href="https://db.nomocode.io/community/sandbox">official community sandbox</a>.
 This is the default repo when setting up your sandbox. 
 </p>
-<h4>Setting up your sandbox</h4>
+<h4>Setting up your sandbox for the first time</h4>
 <p>
 The next thing to do after you have been approved to use the sandbox is to create and connect to it. Sandbox is accessed through 
 OpenVPN private network. Please download and install the OpenVPN client side software on your machine:
+</p>
 <ul>
     <li>Windows users: <a href="https://openvpn.net/client-connect-vpn-for-windows/">https://openvpn.net/client-connect-vpn-for-windows/</a></li>
     <li>MacOS users: <a href="https://openvpn.net/client-connect-vpn-for-mac-os/">https://openvpn.net/client-connect-vpn-for-mac-os/</a></li>
-    <li>Linux users: Install directly from terminal with:<br><code>sudo apt-get install openvpn</code></li>
+    <li>Linux users: Install directly from terminal with<br><code>sudo apt-get install openvpn</code></li>
 </ul>
+<p>
+In order to connect to VPN you need to have your client certificates which we share as encrypted with GPG keys. Before creating a sandbox 
+it is required for you to setup your GPG keys. Grab it and install directly from GnuPG <a href="https://gnupg.org/download/">download section</a>. 
+Then, please follow <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key">the instructions</a> 
+from GitHub documentation to setup your keyring. Skip uploading your public key to GitHub and instead upload it to your GitLab account in 
+db.nomocode.io <a href="https://db.nomocode.io/-/profile/gpg_keys">here</a>. Please note key you setup must match email in your GitLab account.
 </p>
+<p>
+When this is done, you can create your sandbox by issueing the following command in <a href="https://discord.com/channels/836980618239803434/839980384627982377">discord ngc channel</a>:
+</p>
+<code>!ngc sandbox start</code>
+<p>
+When your sandbox is ready you will recieve notification from Sandbox bot. In the message there will be links to your OpenVPN client certificates. Download one based on 
+which operating system you have and then decrypt it with GPG ( here as an example user named Charlie ):
+</p>
+<code>gpg --output Charlie.ovpn --decrypt Charlie.ovpn.gpg</code>
+<p>
+Load your OpenVPN profile ( decrypted client certificates ) to OpenVPN Connect application and connect to VPN. For Linux users connect 
+from terminal ( substitude config path accordingly ):
+</p>
+<code>sudo openvpn --config /path/to/your/certs/Charlie.ovpn</code>
+<p>
+After successfully connecting to VPN network open the following link in your web browser
+</p>
+<a href="http://sandbox.ngc">http://sandbox.ngc</a>
+<p>
+Then open console in code server and init your workspace with the following command
+</p>
+<code>ngc init</code>
+<p>
+You will be asked to generate your ssh keypair. Just follow the instructions and upload your public ssh key to your GitLab account. 
+Next, when everything is done. Open ~/workspace directory.
+</p>
+<p>
+You are now ready to go! Just as a starting example you can build and explore this documentation project inside your sandbox.
+Copy and run the following command in terminal
+</p>
+<code>cd projects/docs && ngc build</code>
+<p>
+Then, visit <a href="http://docs.ngc">http://docs.ngc</a>
+</p>
+<p>
+When you are finished with your development in sandbox just disconnect from VPN network and issue the following command in discord ngc channel:
+</p>
+<code>!ngc sandbox stop</code>
+<p>
+<h4>Next time connection</h4>
+The above instructions were just one time setup, next time when you will want to enter your sandbox just type in discord ngc channel:
+</p>
+<code>!ngc sandbox start</code>
+<p>Then wait for notification from Sandbox bot and connect to VPN and open <a href="http://sandbox.ngc">sandbox</a> in your browser. </p>
+<p>When finished you can stop it with:</p>
+<code>!ngc sandbox stop</code>
+<h4>Destroying your sandbox</h4>
+<p>
+You may decide at some point you don't want to use your sandbox anymore. You can destroy your sandbox completely which is also equivalent to 
+removing all of your data stored in sandbox - you will no longer be able to connect to sandbox with your current VPN certificates and you will 
+need to through the first time setup instructions once again. In order to destroy the sandbox type the following command in discord ngc channel:
+</p>
+<code>!ngc sandbox destroy</code>
+
+ 
