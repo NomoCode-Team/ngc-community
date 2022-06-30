@@ -1,0 +1,37 @@
+<h2>Workspace overview</h2>
+<h4>What is workspace</h4>
+<p>
+Workspace is just a git repository with a special structure that enables NGC to operate on it. 
+NGC does not care if your workspace is hosted on GitLab, GitHub, Bitbucket or other VCS. Additionally, there exists 
+<a href="https://db.nomocode.io/community/sandbox">official community workspace</a> called sandbox. This workspace 
+is public and contains open source projects, libraries and templates everyone can benefit from. This is also the default 
+workspace being initialized in your sandbox upon creation.
+</p>
+<h4>Workspace structure</h4>
+<p>
+As mentioned, NGC relies on special structure of the workspace and we will briefly discuss it below. There are few mandatory 
+top level directories that need to exist to call any git repository a NGC workspace.
+</p>
+<h4>libs</h4>
+<p>
+This directory contains all of the common functions organized within subfolders. These functions are common meaning they can 
+be reused in any project within workspace. Functions are written in TypeScript but in future other languages will be supported.
+Each function has it's own file meaning only one function can be stored in single file. Apart from functions, libs folder also 
+store tests for functions. Tests are executed using jest javascript test framework. Tests have to end with *.test.ts extension 
+and are also written using TypeScript.
+</p>
+<h4>templates</h4>
+<p>
+Templates folder holds common Jinja2 templates which can be reused in projects. Templates are split into files and projects. 
+Template files are just independent single files wheras templates projects holds whole projects structure and can 
+be used as any project foundation.
+</p>
+<h4>projects</h4>
+<p>
+This directory keeps all projects within single workspace. We name project an independent fullstack application. From architectural 
+point of view project is a collection of microservices that work together as a signle system ( project ). 
+</p>
+<h4>filters</h4>
+<p>
+Filters directory contains implamentations of custom Jinja2 filters
+</p>
