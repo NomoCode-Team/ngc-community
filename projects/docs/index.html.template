@@ -10,6 +10,7 @@
   <a href="#" onclick="setPage('functions.html');return false;">Functions</a>
   <a href="#" onclick="setPage('templates.html');return false;">Templates</a>
   <a href="#" onclick="setPage('projects.html');return false;">Projects</a>
+  <a href="#" onclick="setPage('scripting-language.html');return false;">Scripting language</a>
 </div>
 
 <div class="main" id="page-content"></div>
