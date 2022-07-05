@@ -1,7 +1,17 @@
 <h2>Community Workflow Instruction's</h2>
-<p>In order to push your changes </p> <br>
-<p>1. Make sure you don't have any work in progress ( clean git workspace ). If you have some changes commit them or do git stash</p><br>
-<p>2. Checkout to master and pull latest changes. git checkout master && git pull</p><br>
-<p>3. Create new branch for yourself to work. git checkout -b my_new_branch_name</p><br>
-<p>4. Make changes add them to staging area with git add command, then git commit and git push</p><br>
-<p>5. Create a Merge Request ( you should see a link in console prompt to do this )</p><br>
+<ol>
+<li>Make sure your git branch is clean(no changes) by typing in the terminal <code>git status</code></li>
+<li>Make sure you have the same code from the "master" branch just to make sure all changes from the master branch are in your local instance of NGC by typing in the terminal <code>git pull</code></li>
+<li>Create a new branch to save your work in by typing in the terminal <code>git checkout -b <your branch name></code></li>
+<li>When you have made the changes you wanted to make to your project, add your changes to the git staged changes by typing in the terminal <code>git add .</code></li>
+<li>Check that all the changes made to the project are staged by typing in the terminal <code>git status</code></li>
+<li>Commit your changes to the branch by typing in the terminal <code> git commit -m "<commet name>"</code></li>
+<li>Check if you have commitied the changes correctly by typing in the terminal <code>git status</code>. if it shows up green you are good, if not try re-adding/committing.</li>
+<li>Confirm pushing your commit to the branch by typing in the terminal <code>git push</code></li>
+<li>Create the upstream by copying / pasting git push upstream message in terminal, and then entereing your SSH password from <b>Getting Started Section</b>. This is what the message should look like in terminal<code>git push --set-upstream origin <your branch name></your></code></li>
+<li>Click "request to git merge" link in terminal</li>
+<li>Set Assigne as yourself, Reviewer as Zeta, check both options below the green "git merge" button(delete and squash)</li>
+<li>Check your changes by going over to the <b>Changes</b> section.</li>
+<li>Wait for the branch master(Zeta), to merge your branch with master.</li>
+<li>Close your sandbox!</li>
+</ol>
