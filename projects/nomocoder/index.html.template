@@ -1,9 +1,70 @@
-{% extends "projects/HTML/base/index.html.template" %}
+{% block head %}
+<title>NomoCoder.com</title>
+    <meta name="author"      content="NomoCode.com">
+    <meta name="description" content="NomoCode General Compiler (NGC)">
+    <meta name="keywords"    content="NomoCode, NomoCode Engine, No Code, Web App Maker, NomoCode Compiler">
+    <meta name="viewport"    content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon"    type="image/jpg"     href="./asset/favicon/favicon.ico"/>
+    <link rel="apple-touch-icon"                      href="./asset/favicon/apple-touch-icon.png">
+
+    <meta property="og:title"       content="NomoCoder.com">
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://nomocoder.com/">
+    <meta property="og:description" content="NomoCode General Compiler">
+    <meta property="og:image"       content="./asset/img/ngc-logo.png" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+{% endblock %}
 {% block content %}
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec dui nunc mattis enim ut. Et sollicitudin ac orci phasellus egestas. Facilisis magna etiam tempor orci eu lobortis. In metus vulputate eu scelerisque felis imperdiet. Nunc non blandit massa enim nec dui nunc mattis. Lorem ipsum dolor sit amet consectetur adipiscing elit pellentesque. Eget mi proin sed libero enim sed faucibus turpis. Sed augue lacus viverra vitae congue eu consequat. Eget duis at tellus at urna condimentum mattis. Porttitor eget dolor morbi non arcu risus quis varius. Tortor pretium viverra suspendisse potenti.
+<div class="sidebar" style="position: fixed; width: 15%; height: 100%; background-color: #000000; opacity: 10%"></div>
+<div class="sidebar" style="position: fixed; width: 15%; right: 0px; height: 100%; background-color: #000000; opacity: 10%"></div>
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+  <div class="collapse navbar-collapse justify-content-center">
+      <ul class="navbar-nav">
+          <li class="nav-item active">
+              <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="/">About</a>
+          </li>
+      </ul>
+  </div>
+</nav>
+<br>
+<div class="justify-content-center text-center">
+<img src="./asset/img/ngc-logo.png" style="width: 4.5rem; margin-bottom: 1rem;">
+<h1>
+  NGC
+</h1>
+<h5>
+  <text style="color: rgb(75, 181, 238)">N</text>omoCode 
+  <text style="color: rgb(75, 181, 238)">G</text>eneral 
+  <text style="color: rgb(75, 181, 238)">C</text>ompiler
+</h5>
+<br>
+</div>
+ <section class="main-section">  
+      <section class="sub-section">
+        <br>
+        <h3>Stop Wasting Time Coding</h3>
+          <p>
+            How much time have you lost programming<br>
+            when the best solution already exists?
+          </p>
+          <p>
+            NGC gives you optimized code blocks<br>
+            so you can focus on your product instead.
+          </p>
+      </section>
+    </section>
 
-Sed faucibus turpis in eu mi bibendum neque egestas congue. Nam aliquam sem et tortor consequat id porta nibh. Pharetra diam sit amet nisl suscipit adipiscing bibendum. Tristique et egestas quis ipsum suspendisse ultrices gravida dictum. At ultrices mi tempus imperdiet nulla malesuada pellentesque. Elementum nibh tellus molestie nunc non blandit massa enim nec. Et magnis dis parturient montes nascetur ridiculus mus mauris. Tellus mauris a diam maecenas sed enim. Fermentum odio eu feugiat pretium nibh. Aliquam ultrices sagittis orci a scelerisque purus semper eget duis. Maecenas pharetra convallis posuere morbi leo urna molestie at. Amet porttitor eget dolor morbi non arcu risus quis varius. Id nibh tortor id aliquet lectus proin nibh. Amet justo donec enim diam. Id leo in vitae turpis massa.
-
-Scelerisque purus semper eget duis at. Posuere lorem ipsum dolor sit amet. Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Venenatis lectus magna fringilla urna porttitor rhoncus. Justo laoreet sit amet cursus sit. Elementum curabitur vitae nunc sed velit dignissim. Lacinia at quis risus sed vulputate odio ut. Orci porta non pulvinar neque laoreet suspendisse interdum. Massa eget egestas purus viverra accumsan in nisl nisi scelerisque. Nisl nunc mi ipsum faucibus. Mi sit amet mauris commodo quis imperdiet massa tincidunt. Massa eget egestas purus viverra accumsan in nisl. Purus sit amet volutpat consequat mauris nunc congue. Porttitor leo a diam sollicitudin tempor id eu nisl nunc. Faucibus in ornare quam viverra orci sagittis. Eget gravida cum sociis natoque. Odio eu feugiat pretium nibh ipsum. Pharetra massa massa ultricies mi quis hendrerit dolor magna eget. Quis eleifend quam adipiscing vitae proin sagittis. Nisl pretium fusce id velit ut tortor.</p>
-
+    <br><br>
 {% endblock %}

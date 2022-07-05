@@ -1,0 +1,143 @@
+body {
+    background-color: #121212;
+    text-align: center;
+    zoom: 175%;
+  }
+  
+  h1, h2, h3, h4, h5, h6, label, p, text, li {
+    color: whitesmoke
+  }
+  
+  p {
+    max-width: 65ch;
+    margin: 20 auto;
+    text-align: center;
+  }
+  
+  .main-section {
+    border: 1px solid rgb(75, 75, 75);
+    border-left-style: none;
+    border-right-style: none;
+  }
+  
+  .sub-section {
+    border: 1px solid rgb(48, 48, 48);
+    border-left-style: none;
+    border-right-style: none;
+    background-color: #242424;
+  }
+  
+  .container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 680px;
+      flex-shrink: 0;
+    margin: 0 auto;
+    width: 100%;
+    color: whitesmoke;
+  }
+  
+  .item {
+    padding: 1rem;
+    align-self: center;
+    background-color: #202020;
+  }
+  
+  .img-inside-item {
+    max-width: 100px;
+  }
+  
+  .div-container {
+    border: 1px solid gray; 
+    width: 6rem; 
+    height: 5rem;
+  }
+  
+  @media (max-width: 1700px) {
+    .sidebar {
+      display: none;
+    }
+  }
+  .fa {
+    padding:         0.5rem;
+    width:           2rem;
+    height:          2rem;
+    text-align:      center;
+    text-decoration: none;
+    color: white;
+  }
+  
+  .fa:hover {
+    opacity: 1;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-pinterest {
+    background: #cb2027;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-reddit {
+    background: #ff5700;
+    color: white;
+    opacity: 0.5;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+    opacity: 0.5;
+  }
+  br, div, img, noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
+  
+  .notextwrap {
+    white-space: nowrap;
+  }
+  
+  .nopointerevents {
+    pointer-events: "none"
+  }
+  
+  .nodrag {
+    -webkit-user-drag:   none;
+    user-select:         none;
+    -moz-user-select:    none;
+    -webkit-user-select: none;
+    -ms-user-select:     none;
+  }
+  
