@@ -11,7 +11,7 @@ This is the default repo when setting up your sandbox.
 <h4>Setting up your sandbox for the first time</h4>
 <p>
 The next thing to do after you have been approved to use the sandbox is to create and connect to it. Sandbox is accessed through 
-OpenVPN private network. Please download and install the OpenVPN client side software on your machine:
+OpenVPN private network. Please download and install the OpenVPN v3 client side software on your machine:
 </p>
 <ul>
     <li>Windows users: <a href="https://openvpn.net/client-connect-vpn-for-windows/">https://openvpn.net/client-connect-vpn-for-windows/</a></li>
@@ -20,18 +20,18 @@ OpenVPN private network. Please download and install the OpenVPN client side sof
 </ul>
 <p>
 In order to connect to VPN you need to have your client certificates which we share as encrypted with GPG keys. Before creating a sandbox 
-it is required for you to setup your GPG keys. Grab it and install directly from GnuPG <a href="https://gnupg.org/download/">download section</a>. 
+it is required for you to setup your GPG keys. Grab it and install GnuPG 2.3.6 Signature directly from GnuPG <a href="https://gnupg.org/download/">download section</a>. 
 Then, please follow <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key">the instructions</a> 
-from GitHub documentation to setup your keyring. Skip uploading your public key to GitHub and instead upload it to your GitLab account in 
-db.nomocode.io <a href="https://db.nomocode.io/-/profile/gpg_keys">here</a>. Please note key you setup must match email in your GitLab account.
+from GitHub documentation to setup your keyring. Do defualt for all the options. Skip uploading your public key to GitHub and instead upload it to your GitLab account in 
+db.nomocode.io <a href="https://db.nomocode.io/-/profile/gpg_keys">here</a>. Please note key you setup must match email in your GitLab account. Also remember to save your passphrase in bitwarden, so you do not forget or lose it. it is reccomended however you use a short and easily-remeberable passphrase.
 </p>
 <p>
 When this is done, you can create your sandbox by issueing the following command in <a href="https://discord.com/channels/836980618239803434/839980384627982377">discord ngc channel</a>:
 </p>
 <code>!ngc sandbox start</code>
 <p>
-When your sandbox is ready you will recieve notification from Sandbox bot. In the message there will be links to your OpenVPN client certificates. Download one based on 
-which operating system you have and then decrypt it with GPG ( here as an example user named Charlie ):
+When your sandbox is ready(2-5 mins.) you will recieve notification from Sandbox bot. In the message there will be links to your OpenVPN client certificates. Download one based on 
+which operating system you have and then decrypt it with GPG, it is reccomended you decrypt the GPG key with GitBash instead of powershell. Also remember to CD into the folder yout gpg key is in. ( here as an example user named Charlie ):
 </p>
 <code>gpg --output Charlie.ovpn --decrypt Charlie.ovpn.gpg</code>
 <p>
