@@ -1,53 +1,81 @@
 # Getting started
 
-## Access
+## Accessing NGC
 
-NGC is accessed via remote workspace called **sandbox**. If you don't have an access to it you may try to request it at our  [developers discord server](https://discord.gg/CJYHdKCp).
+NGC is accessed via remote workspace called **sandbox**. Access for each user needs to be explicitly granted by the maintainer. If you don't have access to it reach out to us on our [developers discord server](https://discord.gg/CJYHdKCp).
 
 ## Prerequisites
 
 The following software is required to work with remote sandbox and needs to be installed on your machine:
 
-- OpenVPN client
-- GnuPG
-- OpenSSH
-- Visual Studio Code
+- **OpenVPN client** - sandbox is accessible in private network only
+- **GnuPG** - encrypting tools NGC uses to store and share sensitive data
+- **OpenSSH** - to securely access sandbox through ssh protocol
+- **Visual Studio Code** - best suited IDE for working with NGC
 
 ### Linux users
 
 Linux users comes with OpenSSH installed already. Just install OpenVPN client and GnuPG. To do so, open terminal and execute the following command:
 
-```sudo apt-get install -y openvpn gnupg```
+```bash
+sudo apt-get install -y openvpn gnupg
+```
 
 If you don't have Visual Studio Code installed please follow [official documentation](https://code.visualstudio.com/docs/setup/linux)
 
+### Windows users
 
-- [Windows users](https://openvpn.net/client-connect-vpn-for-windows/)
-- [MacOS users](https://openvpn.net/client-connect-vpn-for-mac-os/)
-- Linux users: Install directly from terminal with
-  ```sudo apt-get install openvpn```
+OpenVPN for Windows is fully fledged graphical application. Download and install OpenVPN client from the following [link](https://openvpn.net/client-connect-vpn-for-windows/)
 
+Download and install GnuPG from the [gpg4win](https://gpg4win.org/download.html)
 
-In order to connect to VPN you need to have your client certificates which we share as encrypted with GPG keys. Before creating a sandbox 
-it is required for you to setup your GPG keys. Grab it and install GnuPG 2.3.6 Signature directly from GnuPG <a href="https://gnupg.org/download/">download section</a>. 
-Then, please follow <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key">the instructions</a> 
-from GitHub documentation to setup your keyring. Do defualt for all the options. Skip uploading your public key to GitHub and instead upload it to your GitLab account in 
-db.nomocode.io <a href="https://db.nomocode.io/-/profile/gpg_keys">here</a>. Please note key you setup must match email in your GitLab account. Also remember to save your passphrase in bitwarden, so you do not forget or lose it. it is reccomended however you use a short and easily-remeberable passphrase.
+Install [OpenSSH for Windows](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) if you don't have already.
 
+If you don't have Visual Studio Code installed please follow [official documentation](https://code.visualstudio.com/docs/setup/windows)
 
-When this is done, you can create your sandbox by issueing the following command in <a href="https://discord.com/channels/836980618239803434/839980384627982377">discord ngc channel</a>:
+### MacOS users
 
+Download and install OpenVPN client for MacOS from the following [link](https://openvpn.net/client-connect-vpn-for-mac-os/)
+
+Install OpenSSH and GnuPG. Open terminal and execute:
+
+```bash
+brew install openssh gnupg
+```
+
+If you don't have Visual Studio Code installed please follow [official documentation](https://code.visualstudio.com/docs/setup/mac)
+
+## Prepare your GPG keypair
+
+Please follow [the instructions](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+from GitHub documentation to setup your GPG keyring. Skip the last step for uploading your public key to GitHub and instead upload it to your GitLab account at db.nomocode.io [here](https://db.nomocode.io/-/profile/gpg_keys"). Please note, **the key you setup must match email in your GitLab account**.
+
+## Spawn sandbox
+
+When above steps are completed, you can create your sandbox by issueing the following command in <a href="https://discord.com/channels/836980618239803434/839980384627982377">discord ngc channel</a>:
+
+```
 !ngc sandbox start
+```
 
-When your sandbox is ready(2-5 mins.) you will recieve notification from Sandbox bot. In the message there will be links to your OpenVPN client certificates. Download one based on 
-which operating system you have and then decrypt it with GPG, it is reccomended you decrypt the GPG key with GitBash instead of powershell. Also remember to CD into the folder yout gpg key is in. ( here as an example user named Charlie ):
+Launching sandbox takes about 2~5 mins. Wait until you get direct discord message from **Sandbox** bot. 
 
+## Connect to VPN network
+
+In the message from **Sandbox** bot there will be links to your OpenVPN client certificates. Download one based on which operating system you have and then decrypt it with GPG. For example to decrypt VPN certificates for downloaded file *Charlie.ovpn.gpg* open terminal in the directory where this file is stored and execute:
+
+```bash
 gpg --output Charlie.ovpn --decrypt Charlie.ovpn.gpg
+```
 
-Load your OpenVPN profile ( decrypted client certificates ) to OpenVPN Connect application and connect to VPN. For Linux users connect 
+Next load your OpenVPN profile ( decrypted client certificates ) to OpenVPN Connect application and connect to VPN. For Linux users connect 
 from terminal ( substitude config path accordingly ):
 
+```bash
 sudo openvpn --config /path/to/your/certs/Charlie.ovpn
+```
+
+---
 
 After successfully connecting to VPN network open the following link in your web browser
 
