@@ -1,74 +1,81 @@
-<h2>Getting started</h2>
-<p>
-So, you decided to give it a try? At the current stage NGC is in Alpha release. Only limited amount of users have access to it. 
-</p>
-<p>
-NGC is accessed through remote workspace called sandbox. If you don't have an access to it you may try to request it at our  
-<a href="https://discord.gg/CJYHdKCp">developers discord server</a>
-Code in sandbox is managed by git version control system. Sandbox can use multiple git repositories (private or public) and there is also one special - <a href="https://db.nomocode.io/community/sandbox">official community sandbox</a>.
-This is the default repo when setting up your sandbox. 
-</p>
-<h4>Setting up your sandbox for the first time</h4>
-<p>
-The next thing to do after you have been approved to use the sandbox is to create and connect to it. Sandbox is accessed through 
-OpenVPN private network. Please download and install the OpenVPN v3 client side software on your machine:
-</p>
-<ul>
-    <li>Windows users: <a href="https://openvpn.net/client-connect-vpn-for-windows/">https://openvpn.net/client-connect-vpn-for-windows/</a></li>
-    <li>MacOS users: <a href="https://openvpn.net/client-connect-vpn-for-mac-os/">https://openvpn.net/client-connect-vpn-for-mac-os/</a></li>
-    <li>Linux users: Install directly from terminal with<br><code>sudo apt-get install openvpn</code></li>
-</ul>
-<p>
+# Getting started
+
+## Access
+
+NGC is accessed via remote workspace called **sandbox**. If you don't have an access to it you may try to request it at our  [developers discord server](https://discord.gg/CJYHdKCp).
+
+## Prerequisites
+
+The following software is required to work with remote sandbox and needs to be installed on your machine:
+
+- OpenVPN client
+- GnuPG
+- OpenSSH
+- Visual Studio Code
+
+### Linux users
+
+Linux users comes with OpenSSH installed already. Just install OpenVPN client and GnuPG. To do so, open terminal and execute the following command:
+
+```sudo apt-get install -y openvpn gnupg```
+
+If you don't have Visual Studio Code installed please follow [official documentation](https://code.visualstudio.com/docs/setup/linux)
+
+
+- [Windows users](https://openvpn.net/client-connect-vpn-for-windows/)
+- [MacOS users](https://openvpn.net/client-connect-vpn-for-mac-os/)
+- Linux users: Install directly from terminal with
+  ```sudo apt-get install openvpn```
+
+
 In order to connect to VPN you need to have your client certificates which we share as encrypted with GPG keys. Before creating a sandbox 
 it is required for you to setup your GPG keys. Grab it and install GnuPG 2.3.6 Signature directly from GnuPG <a href="https://gnupg.org/download/">download section</a>. 
 Then, please follow <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key">the instructions</a> 
 from GitHub documentation to setup your keyring. Do defualt for all the options. Skip uploading your public key to GitHub and instead upload it to your GitLab account in 
 db.nomocode.io <a href="https://db.nomocode.io/-/profile/gpg_keys">here</a>. Please note key you setup must match email in your GitLab account. Also remember to save your passphrase in bitwarden, so you do not forget or lose it. it is reccomended however you use a short and easily-remeberable passphrase.
-</p>
-<p>
+
+
 When this is done, you can create your sandbox by issueing the following command in <a href="https://discord.com/channels/836980618239803434/839980384627982377">discord ngc channel</a>:
-</p>
-<code>!ngc sandbox start</code>
-<p>
+
+!ngc sandbox start
+
 When your sandbox is ready(2-5 mins.) you will recieve notification from Sandbox bot. In the message there will be links to your OpenVPN client certificates. Download one based on 
 which operating system you have and then decrypt it with GPG, it is reccomended you decrypt the GPG key with GitBash instead of powershell. Also remember to CD into the folder yout gpg key is in. ( here as an example user named Charlie ):
-</p>
-<code>gpg --output Charlie.ovpn --decrypt Charlie.ovpn.gpg</code>
-<p>
+
+gpg --output Charlie.ovpn --decrypt Charlie.ovpn.gpg
+
 Load your OpenVPN profile ( decrypted client certificates ) to OpenVPN Connect application and connect to VPN. For Linux users connect 
 from terminal ( substitude config path accordingly ):
-</p>
-<code>sudo openvpn --config /path/to/your/certs/Charlie.ovpn</code>
-<p>
+
+sudo openvpn --config /path/to/your/certs/Charlie.ovpn
+
 After successfully connecting to VPN network open the following link in your web browser
-</p>
+
 <a href="http://sandbox.ngc">http://sandbox.ngc</a>
-<p>
+
 Then open console in code server and init your workspace with the following command
-</p>
-<code>ngc init</code>
-<p>
+
+ngc init
+
 You will be asked to generate your ssh keypair. Just follow the instructions and upload your public ssh key to your GitLab account. 
 Next, when everything is done. Open ~/workspace directory.
-</p>
-<p>
+
 You are now ready to go! Just as a starting example you can build and explore this documentation project inside your sandbox.
 Copy and run the following command in terminal
-</p>
-<code>cd projects/docs && ngc build</code>
-<p>
+
+cd projects/docs && ngc build
+
 Then, visit <a href="http://docs.ngc">http://docs.ngc</a>
-</p>
-<p>
+
 When you are finished with your development in sandbox just disconnect from VPN network and issue the following command in discord ngc channel:
-</p>
-<code>!ngc sandbox stop</code>
-<p>
-<h4>Next time connection</h4>
+
+!ngc sandbox stop
+
+Next time connection
 The above instructions were just one time setup, next time when you will want to enter your sandbox just type in discord ngc channel:
-</p>
-<code>!ngc sandbox start</code>
-<p>Then wait for notification from Sandbox bot and connect to VPN and open <a href="http://sandbox.ngc">sandbox</a> in your browser. </p>
+
+!ngc sandbox start
+Then wait for notification from Sandbox bot and connect to VPN and open <a href="http://sandbox.ngc">sandbox</a> in your browser.
 <p>When finished you can stop it with:</p>
 <code>!ngc sandbox stop</code>
 <h4>Destroying your sandbox</h4>
@@ -80,3 +87,7 @@ need to through the first time setup instructions once again. In order to destro
 <code>!ngc sandbox destroy</code>
 
  
+NGC operates on **workspaces**. Workspace is a filesystem directory with a special prepared structure.
+
+Code in sandbox is managed by git version control system. Sandbox can use multiple git repositories (private or public) and there is also one special - <a href="https://db.nomocode.io/community/sandbox">official community sandbox</a>.
+This is the default repo when setting up your sandbox. 
