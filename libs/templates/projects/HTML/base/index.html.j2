@@ -4,11 +4,7 @@
 {% block head %}
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css" />
-    <title>{{ HTML_base.title }}</title>
 {% endblock %}
-{%- for line in HTML_base.imports %}
-    {{ line -}}
-{% endfor %}
 </head>
 <body>
     <div id="content">
@@ -17,7 +13,7 @@
     </div>
     <div class="footer">
 {% block footer %}
-        &copy; Copyright {{ HTML_base.year }} by <a href="https://nomocode.io">NomoCode</a>. Last updated {{ HTML_base.update_date }}
+        Omg
 {% endblock %}
     </div>
 </body>

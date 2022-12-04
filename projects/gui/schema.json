@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+        "background_color": {
+            "type": "string",
+            "description": "Sets background color"
+        }
+    },
+    "required": [
+        "background_color"
+    ]
+}

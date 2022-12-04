@@ -1,0 +1,6 @@
+HTML:
+  base:
+    background-color: sdgsg
+    footer:
+      color: yellow
+    hide-scrollbars: false

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "HTML": {
+      "description": "Properties for HTML parent",
+      "type": "object",
+      "properties": {
+        "base": {
+          "description": "Properties for HTML base",
+          "type": "object",
+          "properties": {
+            "hide-scrollbars": {
+              "type": "boolean",
+              "description": "Hides the scrollbars"
+            },
+            "background-color": {
+              "type": "string",
+              "description": "A background color for your HTML page"
+            },
+            "footer": {
+              "description": "Properties for HTML footer",
+              "type": "object",
+              "properties": {
+                "color": {
+                  "type": "string",
+                  "description": "A color for the footer text"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
