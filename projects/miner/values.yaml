@@ -1,0 +1,6 @@
+Docker:
+ compose:
+  services:
+   miner:
+    ports: 
+     - 80:80
