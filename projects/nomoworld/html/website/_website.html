@@ -1,0 +1,49 @@
+<div id='website'>
+
+    <div style="position: absolute;">
+        <h1 class="noselect versionStatusHTMLText">NomoWorld Alpha - 0.0.4</h1>
+        <p class="noselect versionStatusHTMLText" style="margin-top: -8px";><b>W A S D</b> to walk | <b>Shift</b> to run | <b>E</b> to interact </p>
+    </div>
+
+    <div style="position: absolute; right: 120px; top: 0px">
+        <button type="button" style="width: 100px; height: 32px;" class="noselect versionStatusHTMLText" onmousedown="doTheStuff('credits')">Credits</button>
+        <button type="button" style="width: 100px; height: 32px;" class="noselect versionStatusHTMLText" onmousedown="doTheStuff('changelog')">Changelog</button>
+        <button type="button" style="width: 100px; height: 32px;" class="noselect versionStatusHTMLText" onmousedown="doTheStuff('links')">Links</button>
+        <button type="button" style="width: 100px; height: 32px;" class="noselect versionStatusHTMLText" onmousedown="doTheStuff('testimonials')">Testimonials</button>
+    </div>
+
+    <div style="position: absolute; right: 0px; top: 0px">
+        <a href="https://discord.gg/PPnjPAD" alt="Discord Link" target="_blank" rel="noopener, noopener noreferrer"><img src="/asset/img/social_media/discord/Discord.png" style="width:120px; height:80px;"></a>
+    </div>
+
+    <script>
+        
+        function doTheStuff(id) {
+
+            console.log(id)
+                
+            const targetElem = document.getElementById(id)
+            const currentVisibleState = targetElem.style.display
+            
+            const a = ['changelog', 'credits', 'links', 'testimonials']
+            setVisibleToFalseByArrayOfElementIds(a)
+
+            if (currentVisibleState === 'none') {
+                toggleElementVisible(id)
+                //!! f - setVisibleToTrueOfElementById('phaserGame')
+            } else {
+                //!! f - setInvisibleToTrueOfElementById('phaserGame')
+            }
+
+            // Show / Hide scrollbar
+            if ((id === 'testimonials') && (currentVisibleState === 'none')) {
+                document.body.style.overflow = "auto"
+            } else {
+                document.body.style.overflow = "hidden"
+            }
+
+        }
+
+    </script>
+
+</div>

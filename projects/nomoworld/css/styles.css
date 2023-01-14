@@ -1,0 +1,49 @@
+body,
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+div {
+    background-color: #121212;
+}
+
+p {
+    margin: 0px;
+    padding: 0px;
+} /* override bootstrap paragraph spacing */
+
+
+h1 {
+    font-size: 28px;
+} /* override bootstrap h1 spacing */
+
+
+input, textarea { 
+    background-color:#666;
+    color: #FFF;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+
+.versionStatusHTMLText {
+    color:#cfcfcf; 
+    background-color: black;
+}
+ 
+button:focus {
+    outline: 0;
+}
+
+.htmlText {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
