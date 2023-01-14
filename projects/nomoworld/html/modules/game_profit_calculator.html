@@ -1,0 +1,50 @@
+<html>
+
+    <style>
+        body {
+            background-color: gray;
+        }
+    </style>
+
+    <body>
+
+        <label><u>NomoCode.io - Game Profit Estimate</u></label><br><br>
+
+        <label>This calculator provides a <b>very rough estimate</b> of how much money a .io game with video ads may make a month</label><br><br>
+
+        <label>Views Per Month:</label>
+        <input type="text" id="viewsPerMonth"><br><br>
+
+        <label>Bounce Rate:</label>
+        <input type="text2" id="bounceRate"><br><br>
+
+        <label>Number Of Servers:</label>
+        <input type="text3" id="numberOfServers"><br><br>
+        
+        <button type="button" id='submit'>Submit</button><br><br>
+
+        <label>Result:</label>
+        <label id='result'><b>$0.00 USD</b></label>
+
+        <script>
+
+            // Profit = ((((total_views_per_month - (total_views_per_month * bounce_rate * 0.01)) / 1000) * 5) - (number_of_servers * 10)
+
+            document.getElementById('submit').addEventListener('mousedown', e => {
+
+                const total_views_per_month = document.getElementById('viewsPerMonth').value
+                const bounce_rate = document.getElementById('bounceRate').value
+                const number_of_servers = document.getElementById('numberOfServers').value
+                
+                const unroundedResult = (((total_views_per_month - (total_views_per_month * bounce_rate * 0.01)) / 1000) * 5) - (number_of_servers * 10)
+                
+                const roundedResult = Math.round((unroundedResult + Number.EPSILON) * 100) / 100
+                
+                document.getElementById('result').innerHTML = ('<b>' + ('$' + roundedResult + 'USD') + '</b>')
+            
+            })
+        </script>
+
+    </body>
+
+</html>

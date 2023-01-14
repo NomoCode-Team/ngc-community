@@ -1,0 +1,87 @@
+check if need to credit the social media icons
+
+convert rotation for omo_data to degrees [very easy]
+
+only 1 import for omo_data and npc_omo, right now in 4 places
+make sure not scaling everything every frame, use a flag for this
+introduce bool component types
+introduce state component types
+convert all phaser position to use grid module
+
+on resize, the 
+
+https://www.vecteezy.com/vector-art/135912-free-music-vector-collection
+https://www.vecteezy.com/vector-art/421017-vector-pulse-rate-icon
+https://www.vecteezy.com/free-vector/marimba">Marimba Vectors by Vecteezy</a>
+
+
+Jan 5, Ver 0.0.4:
+
+added fullscreen mode
+added hotbar
+- disable / enable with mouse / shortcut keys
+
+Press icons to toggle on and off
+Use E to interact (fade in first time can interact)
+
+Added Shortcut keys:
+(r = running)
+(f = fullscreen)
+(n = sound)
+(q = minimap)
+(m = music)
+
+------------------------------------------------------------
+
+Gameplay Changes:
+- dialog hitting E to enter dialog, and to exit from dialog, not holding
+-- Shouldn't be able to move when transitioning buildings
+-- Or in dialog
+
+Experiments:
+- added a hidden nomocoin on the map
+
+Add NomoCoin
+- sfx
+- location on map
+- dialog popup
+
+Add collision with grid so player can't leave game boundary
+Dialog Modal at the bottom of the screen
+Dialog Modal will resize with screen
+
+add character building background PFPs to dialog modals
+
+center text for dialog modal name -- just get width / 2 and set x loc to this for text
+
+Fix the grid algorithm for hotbar, right now 0 space stacks on top of each other, but it shouldn't do that, should just be side by side
+
+Removed lag from new buildings loading (png is correct scale to begin with)
+
+Add background behind phone so it's not see through
+
+
+    Gameplay Changes:
+    - dialog hitting E to enter dialog, and to exit from dialog, not holding
+    -- Shouldn't be able to move when transitioning buildings
+    -- Or in dialog
+
+    Experiments:
+    - added a hidden nomocoin on the map
+
+    Add NomoCoin
+    - sfx
+    - location on map
+    - dialog popup
+
+    <b>Gameplay Changes:</b><br> 
+    • improved performance by reducing pixel count on screen<br> 
+    • zoomed camera in<br> 
+    <br> 
+
+    Dialog Modal at the bottom of the screen
+    Dialog Modal will resize with screen
+
+    Capture Ver 0.0.2 Video
+
+-->

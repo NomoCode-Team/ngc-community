@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    
+    <meta charset="UTF-8"/>
+    <title>NomoCode.io</title>
+    <meta name="description" content="Make Games with No Code for Free!">
+    <meta name="keywords" content="no code game engine">
+    <meta name="author" content="NomoCode.io">
+
+    <link rel='shortcut icon' type='image/x-icon' href='./asset/img/favicon/favicon.ico'/>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/socialmediaicons.css">
+    <link rel="stylesheet" href="./css/styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="./js/libraries/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <script src="./js/libraries/phaser.min.js"></script>
+
+    <script src="./js/util/contains/array/array.js"></script>
+    <script src="./js/util/contains/object/object.js"></script>
+    <script src="./js/util/convert/arrayToObject.js"></script>
+    <script src="./js/util/filter/array.js"></script>
+    <script src="./js/util/html/html.js"></script>
+    <script src="./js/util/merge/array.js"></script>
+    <script src="./js/util/random/array.js"></script>
+    <script src="./js/util/sort/array.js"></script>
+
+    <script src="./js/module/logger/logger.js"></script>
+
+    <script src="./data/game/global.js"></script>
+
+    <script src="./data/game/building.js"></script>
+    <script src="./data/game/const.js"></script>
+    <script src="./data/game/components.js"></script>
+    <script src="./data/game/counters.js"></script>
+    <script src="./data/game/dialog.js"></script>
+    <script src="./data/game/dialog_pfp.js"></script>
+    <script src="./data/game/grid.js"></script>
+    <script src="./data/game/log.js"></script>
+    <script src="./data/game/nomocoin.js"></script>
+    <script src="./data/game/omo_data.js"></script>
+    <script src="./data/game/omophone.js"></script>
+    <script src="./data/game/keybind.js"></script>
+    <script src="./data/game/sounds.js"></script>
+
+    <script src="./data/html/html_data.js"></script>
+ 
+    <script src="./js/ecs/component/component.js"></script>
+    <script src="./js/ecs/entity/entity.js"></script>
+    <script src="./js/ecs/entityComponent/func/checkComponent.js"></script>
+    <script src="./js/ecs/entityComponent/func/getValueComponent.js"></script>
+    <script src="./js/ecs/entityComponent/cmd/changeComponent.js"></script>
+    <script src="./js/ecs/entityComponent/cmd/createComponent.js"></script>
+    <script src="./js/ecs/entityComponent/cmd/removeComponent.js"></script>
+   
+    <script src="./js/ecs/system/phaser/camera.js"></script>
+    <script src="./js/ecs/system/phaser/collision.js"></script>
+    <script src="./js/ecs/system/phaser/delete.js"></script>
+    <script src="./js/ecs/system/phaser/depth.js"></script>
+    <script src="./js/ecs/system/phaser/dialog.js"></script>
+    <script src="./js/ecs/system/phaser/input.js"></script>
+    <script src="./js/ecs/system/phaser/opacity.js"></script>
+    <script src="./js/ecs/system/phaser/position.js"></script>
+    <script src="./js/ecs/system/phaser/resize.js"></script>
+    <script src="./js/ecs/system/phaser/rotation.js"></script>
+    <script src="./js/ecs/system/phaser/scale.js"></script>
+    <script src="./js/ecs/system/phaser/sound.js"></script>
+    <script src="./js/ecs/system/phaser/spawn.js"></script>
+    <script src="./js/ecs/system/phaser/transition.js"></script>
+    <script src="./js/ecs/system/phaser/visibility.js"></script>
+
+    <script src="./js/phaser/utility/phaserUtility.js"></script>
+    <script src="./js/phaser/utility/rectangle.js"></script>
+ 
+    <script src="./js/phaser/init/building.js"></script>
+    <script src="./js/phaser/init/dialog.js"></script>
+    <script src="./js/phaser/init/dialog_profile_pic.js"></script>
+    <script src="./js/phaser/init/environment.js"></script>
+    <script src="./js/phaser/init/global.js"></script>
+    <script src="./js/phaser/init/hero.js"></script>
+    <script src="./js/phaser/init/hotbar.js"></script>
+    <script src="./js/phaser/init/nomocoin.js"></script>
+    <script src="./js/phaser/init/npc_omo.js"></script>
+    <script src="./js/phaser/init/omophone.js"></script>
+    <script src="./js/phaser/init/floor.js"></script>
+    <script src="./js/phaser/init/phaserKeyboardInput.js"></script>
+
+    <script src="./js/phaser/preload/img/building.js"></script>
+    <script src="./js/phaser/preload/img/environment.js"></script>
+    <script src="./js/phaser/preload/img/hero.js"></script>
+    <script src="./js/phaser/preload/img/hotbar.js"></script>
+    <script src="./js/phaser/preload/img/nomocoin.js"></script>
+    <script src="./js/phaser/preload/img/omo.js"></script>
+    <script src="./js/phaser/preload/img/omophone.js"></script>
+    <script src="./js/phaser/preload/img/travel.js"></script>
+
+    <script src="./js/phaser/preload/sfx/sound.js"></script>
+
+    <div id="website" style="display: block;"></div>
+    <div id="testimonials"></div>
+    <div id="changelog"></div>
+    <div id="credits"></div>
+    <div id="links"></div>
+    <div id="phaserGame">
+        <script src="js/phaser/plaza.js"></script>
+    </div>
+
+    <script>
+
+        $("#website").load("./html/website/_website.html")
+
+        a_HTMLHeaderData.forEach(o => {
+            $(`#${o.label}`).load(`./html/website/${o.id}.html`)
+            document.getElementById(o.label).setAttribute( "class", "noselect htmlText versionStatusHTMLText" )
+            document.getElementById(o.label).setAttribute( "style", `${o.style} top: ${o.top}px; right: ${o.right}px; display: none`)
+        })
+
+   </script>
+
+    <script>
+        
+        //!! - click to autostart playing music
+
+        registerNewECSComponentsByMultiArray(G.ma_components)
+        
+        disableDefaultRightClick()
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<script> 
+
+    const a_importPathsAndFilenames = [
+        {
+            'path': 'js/libraries/',
+            'name': ['phaser.min.js']
+        },
+        {
+            'path': 'js/util/contains/array/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/util/contains/object/',
+            'name': ['object']
+        },
+        {
+            'path': 'js/util/convert/',
+            'name': ['arrayToObject']
+        },
+        {
+            'path': 'js/util/filter/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/util/html/',
+            'name': ['html']
+        },
+        {
+            'path': 'js/util/merge/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/util/random/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/util/merge/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/util/random/',
+            'name': ['array']
+        },
+        {
+            'path': 'js/module/logger/',
+            'name': ['logger']
+        },
+        {
+            'path': 'data/game/',
+            'name': ['global', 'building', 'const', 'components', 'counters', 'dialog', 'dialog_pfp', 'grid', 'log', 'nomocoin', 'omo_data', 'omophone', 'keybind', 'sounds']   
+        },
+        {
+            'path': 'js/ecs/component/',
+            'name': ['component']
+        },
+        {
+            'path': 'js/ecs/entity/',
+            'name': ['entity']
+        },
+        {
+            'path': 'js/ecs/entityComponent/func/',
+            'name': ['checkComponent', 'getValueComponent']
+        },
+        {
+            'path': 'js/ecs/entityComponent/cmd/',
+            'name': ['changeComponent', 'createComponent', 'removeComponent']
+        },
+        {
+            'path': 'js/ecs/system/phaser/',
+            'name': ['camera', 'collision', 'delete', 'depth', 'dialog', 'input', 'opacity', 'position', 'resize', 'rotation', 'scale', 'sound', 'spawn', 'transition', 'visibility']
+        },
+        {
+            'path': 'js/phaser/utility/',
+            'name': ['phaserUtility', 'rectangle']
+        },
+        {
+            'path': 'js/phaser/init/',
+            'name': ['building', 'dialog', 'dialog_profile_pic', 'environment', 'global', 'hero', 'hotbar', 'nomocoin', 'npc_omo', 'omophone', 'phaser_grid', 'phaserKeyboardInput']
+        },
+        {
+            'path': 'js/phaser/preload/img/',
+            'name': ['building', 'environment', 'hero', 'hotbar', 'nomocoin', 'omo', 'omophone', 'travel']
+        },
+        {
+            'path': 'js/phaser/preload/sfx/',
+            'name': ['sound']
+        },
+        {
+            'path': 'js/phaser/',
+            'name': ['plaza']
+        }
+    ]
+</script>
+
+<script>
+    $().ready(() => {
+        $("#website").load("html/website.html")
+        a_importPathsAndFilenames.forEach(o => {
+            f = o.path
+            a = o.name
+            a.forEach(s => {
+                $.getScript(`${f}${s}.js`)
+                /*
+                $.ajax({
+                    async: false,
+                    url: (`${f}${s}.js`),
+                    dataType: "script"
+                })
+                */
+            })
+        })
+    })
+</script>
