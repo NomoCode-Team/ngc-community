@@ -1,0 +1,8 @@
+import { defineConfig } from 'vite'
+import { resolve } from 'path'
+
+//@ts-ignore
+export default defineConfig(() => {
+  return {{( web.vite.config if web is defined and web.vite is defined and web.vite.config is defined else {}) | tojson }}
+  }
+)

@@ -1,2 +1,11 @@
-background_color: ""
+background_color: "#121212"
 font_color: black
+
+web: 
+  vite:
+    config:
+      {
+        build: {
+          sourcemap: true
+        }
+      }
