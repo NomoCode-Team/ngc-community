@@ -3,60 +3,84 @@
   <head>
     <meta charset="utf-8">
     <title>NomoCode General Compiler - GUI</title>
-    <link rel="stylesheet" href="./css/styles.css"/>
+    
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="./css/no-behavior-classes.css">
-    <link rel="stylesheet" href="./css/html_tabs.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="src/css/_root.css"/>
+
+    <!--
+      <link rel="stylesheet" href="src/css/behavior/no-behavior-classes.css">
+      <link rel="stylesheet" href="src/css/module/html_tabs.css">
+      <link rel="stylesheet" href="src/css/styles.css"/>
+    -->
+
   </head>
+
   <body>
-    <div id="div_container" class="w3-container w3-center"></div>
-    <script defer src="./js/scripts.js" type="text/javascript"></script>
 
-  <!-- Tab links -->
-  <div class="tab">
-    <button class="tablinks" onclick="openCity(event, 'Development')">Development</button>
-    <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-    <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-  </div>
-  
-  <button id="btn_build">Build</button>
 
-  <!-- Tab content -->
-  <div id="Development" class="tabcontent">
-    <h3>Development</h3>
-    <p id="p_development"></p>
-  </div>
-  
-  <div id="Paris" class="tabcontent">
-    <h3>Paris</h3>
-    <p>Paris is the capital of France.</p>
-  </div>
-  
-  <div id="Tokyo" class="tabcontent">
-    <h3>Tokyo</h3>
-    <p>Tokyo is the capital of Japan.</p>
-  </div>
+    <h2>Projects</h2>
+    <div id="div_container" style="display: flex; justify-content: center; align-content: center; gap: 30px; padding: 30px;"></div>
+
+    <script defer type="module" src="src/ts/index.ts"></script>
+
+    <div id="div_inspector" style="display: none">
+
+      <h2 id="h2_selectedProjectName"></h2>
+
+      <!-- Tab links -->
+      <div class="tab">
+        <button class="tablinks" onclick="changeOpenHTMLTab(event, 'Development')">Development</button>
+        <button class="tablinks" onclick="changeOpenHTMLTab(event, 'Staging')">Staging</button>
+        <button class="tablinks" onclick="changeOpenHTMLTab(event, 'Production')">Production</button>
+      </div>
+
+      <button id="btn_build" class="btn btn-success">Build</button>
+
+      <!-- Tab content -->
+      <div id="Development" class="tabcontent">
+        <h4>Development</h4>
+        <p id="p_development"></p>
+      </div>
+      
+      <div id="Staging" class="tabcontent">
+        <h4>Staging</h4>
+        <p id="p_staging"></p>
+        <p>Staging</p>
+      </div>
+      
+      <div id="Production" class="tabcontent">
+        <h4>Production</h4>
+        <p>Production</p>
+      </div>
+
+    </div>
 
   <script>
-    function openCity(evt, cityName) {
-        // Declare all variables
-        var i, tabcontent, tablinks;
-    
-        // Get all elements with class="tabcontent" and hide them
-        tabcontent = document.getElementsByClassName("tabcontent");
-        for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-        }
-    
-        // Get all elements with class="tablinks" and remove the class "active"
-        tablinks = document.getElementsByClassName("tablinks");
-        for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-        }
-    
-        // Show the current tab, and add an "active" class to the button that opened the tab
-        document.getElementById(cityName).style.display = "block";
-        evt.currentTarget.className += " active";
+    function changeOpenHTMLTab(evt, cityName) {
+      // Declare all variables
+      var i, tabcontent, tablinks;
+  
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+  
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+  
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(cityName).style.display = "block";
+      evt.currentTarget.className += " active";
     }
   </script>
 

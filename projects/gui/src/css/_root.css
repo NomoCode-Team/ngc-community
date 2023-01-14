@@ -1,0 +1,9 @@
+/*
+@import url("../../../_root/css/tabs.css");
+@import url("./styles.css");
+@import url("../../../_root/css/darkmode.css");
+*/
+
+@import url("./behavior/no-behavior-classes.css");
+@import url("./module/html_tabs.css");
+@import url("./styles.css")

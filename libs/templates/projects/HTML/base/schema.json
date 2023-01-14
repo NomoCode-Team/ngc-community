@@ -9,21 +9,35 @@
           "description": "Properties for HTML base",
           "type": "object",
           "properties": {
+            "header": {
+              "description": "Properties for HTML header",
+              "type": "object",
+              "properties": {
+                "color": {
+                  "title": "Header Color",
+                  "type": "string",
+                  "description": "Color of the header text"
+                }
+              }
+            },
             "hide-scrollbars": {
+              "title": "Hide Scrollbars",
               "type": "boolean",
               "description": "Hides the scrollbars"
             },
             "background-color": {
+              "title": "Background Color",
               "type": "string",
-              "description": "A background color for your HTML page"
+              "description": "Background color of your website page"
             },
             "footer": {
               "description": "Properties for HTML footer",
               "type": "object",
               "properties": {
                 "color": {
+                  "title": "Footer Color",
                   "type": "string",
-                  "description": "A color for the footer text"
+                  "description": "Color of the footer text"
                 }
               }
             }

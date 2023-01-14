@@ -1,6 +1,8 @@
 HTML:
   base:
-    background-color: sdgsg
-    footer:
-      color: yellow
+    header:
+      color: undefined
     hide-scrollbars: false
+    background-color: blue
+    footer:
+      color: green

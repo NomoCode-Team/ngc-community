@@ -1,1 +1,2 @@
-from: scratch
+description: vite typescript gui
+from: web/vite
