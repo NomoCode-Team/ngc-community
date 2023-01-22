@@ -6,4 +6,3 @@ web:
     config:
       build:
         sourcemap: true
-
