@@ -4,7 +4,7 @@
 
 Workspace is just a git repository with a special folders structure that enables NGC to operate on it. 
 NGC does not care if your workspace is hosted on GitLab, GitHub, Bitbucket or other VCS. Additionally, there exists 
-(official community workspace)[https://db.nomocode.io/community/sandbox] called sandbox. This workspace 
+[official community workspace](https://db.nomocode.io/community/sandbox) called sandbox. This workspace 
 is public and contains open source projects, libraries and templates everyone can benefit from.
 
 ## Workspace structure

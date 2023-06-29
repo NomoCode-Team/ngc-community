@@ -23,5 +23,5 @@ Although values.yaml file cannot be templated it's values that are stored within
 ## More details on Jinja2
 
 Here we are just discussing how Jinja2 fits into NGC. If you are new to Jinja2 templating please refer to the 
-(official documentation)[https://jinja.palletsprojects.com/en/3.1.x], as the Jinja2 usage is out of the scope of the NGC 
+[official documentation](https://jinja.palletsprojects.com/en), as the Jinja2 usage is out of the scope of the NGC 
 documentation.
