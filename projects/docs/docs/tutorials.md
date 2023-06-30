@@ -49,3 +49,66 @@ When you refresh your browser tab on [http://hello-ngc.ngc](http://hello-ngc.ngc
 *Hello NGC* text is displayed instead.
 
 You can add more files and html pages to your project since your project is working as normal static HTTP server
+
+## Templating with Jinja
+
+The core feature of NGC is the ability to template projects with the use of Jinja2 templating engine. Templating makes your project
+more flexible and enables project configuration e.g. across different deployment environments. In NGC Jinja templating engine is
+used before the application image build step to render any template within the project. Therefore, it behaves like pre-processor
+rendering templates not at runtime but during the build.
+
+Let's update previous example project *hello-ngc* with a message that can be easly customized. Additionaly we would like to customize
+background color of the home page. Navigate to *projects/hello-ngc* and update index.html file as given below:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: white">
+   <h1>Hello NGC</h1>
+</body>
+</html>
+```
+
+After updating the file issue *ngc run* command and check if there is no error and page displays properly.
+
+Next, we would like to change background color and the text inside *h1* header. It's not a big deal to update this small *index.html*
+but let's imagine script for our HTML page is really big and complex. These two parameters should be easly adjustable for the build.
+To do so we will turn *index.html* file into Jinja template and create special configuration file used by NGC to render this file when
+building project.
+
+Change file extension by adding extra `.j2` at the end so that *index.html* will be now *index.html.j2*. *.j2* extension stands for
+jinja2 template file and NGC will recognize such file as a template to be rendered before adding to the build context. After updating
+the file name open it and modify the content to be as follow:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: {{ background_color }}">
+   <h1>{{ message }}</h1>
+</body>
+</html>
+```
+
+What we just did is to replace the actual literal values with simple Jinja blocks ( double curly braces ) and within these blocks we
+put configuration values names. These values will be next defined in a configuration file *values.yaml* that is a special file recognized
+by NGC.
+
+Now, create `values.yaml` file in the project root directory i.e. inside *hello-ngc* next to *index.html.j2* file. *values.yaml* file
+place is always at application root direcotry. Set the following content in *values.yaml* file:
+
+```yaml
+background_color: white
+message: Hello NGC template!
+```
+
+Now rebuild the project and check again if changes are successfully applied.
+
+Let's now change a little bit our configuration values. Update the *values.yaml* as below and rebuild the project.
+
+```yaml
+background_color: blue
+message: Simple configuration change made with NGC
+```
+
+You can tweek your parameters to experiment a little bit or even have fun and introduce some more configuration parameters. If you would like
+to create more complex templates e.g. with conditionals please follow some Jinja tutorials or check [official Jinja documentation](https://jinja.palletsprojects.com/en/3.1.x/). You can find also easy to follow basic Jinja examples [here](https://ultraconfig.com.au/blog/jinja2-a-crash-course-for-beginners/). We will not dvelve much more into it because Jinja templating is out of the scope of NGC documentation.
