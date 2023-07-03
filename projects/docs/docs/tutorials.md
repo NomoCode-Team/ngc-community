@@ -163,3 +163,45 @@ message: Inheritance in NGC is easy!
 
 Build this project and see that although we have same basis *simple-parent* for both our projects - *child-project* and *second-child* - they
 differ because *simple-parent* allows to set configuration values that are now different across both projects.
+
+# Compositions
+
+In this example we will learn what is *project composition* in NGC. In short, composition is just inheritance of multiple project templates
+( parents ) for the same project.
+
+Create a new NGC project called `composition` and create `index.html` file within it with the following content:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: blue">
+   <h1>Composition example</h1>
+   <img src="image1.jpg" />
+   <img src="image2.jpg" />
+   <img src="image3.jpg" />
+</body>
+</html>
+```
+
+Build and review project. Don't worry about missing images - we will add them by composition in the next steps.
+
+Now, create 3 project templates named `composition-image1`, `composition-image2` and `composition-image3`.
+Within these projects place images `image1.jpg`, `image2.jpg`, and `image3.jpg` respectively. You can download any image you want given you have
+permissions to use them or you can also use the following link pick random example image [https://picsum.photos/200/300](https://picsum.photos/200/300). For example to download `image1.jpg` open console in `composition-image1` project template and execute command:
+
+```bash
+wget https://picsum.photos/200/300 -O image1.jpg
+```
+
+When you have all project templates ready, go back to `composition` project and create there `project.ngc.yaml` with the following content:
+
+```yaml
+from:
+   - composition-image1
+   - composition-image2
+   - composition-image3
+```
+
+Rebuild your project and see that all your images have been successfully loaded. In this case we composed our project with multiple parents - each
+one responsible to provide single image for our composition application. `from` keyword in *project.ngc.yaml* can be therefore a string
+or an array of strings in case of composition.
