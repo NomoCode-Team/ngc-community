@@ -113,7 +113,7 @@ message: Simple configuration change made with NGC
 You can tweek your parameters to experiment a little bit or even have fun and introduce some more configuration parameters. If you would like
 to create more complex templates e.g. with conditionals please follow some Jinja tutorials or check [official Jinja documentation](https://jinja.palletsprojects.com/en/3.1.x/). You can find also easy to follow basic Jinja examples [here](https://ultraconfig.com.au/blog/jinja2-a-crash-course-for-beginners/). We will not dvelve much more into it because Jinja templating is out of the scope of NGC documentation.
 
-# Project templates and inheritance
+## Project templates and inheritance
 
 The NGC usefulness lies in its ability to reuse chunks of application code across multiple projects. This is possible thanks to community
 that creates and shares various *Project Templates* in NGC Workspace libraries. There is no particular difference between *Project* and
@@ -164,7 +164,7 @@ message: Inheritance in NGC is easy!
 Build this project and see that although we have same basis *simple-parent* for both our projects - *child-project* and *second-child* - they
 differ because *simple-parent* allows to set configuration values that are now different across both projects.
 
-# Compositions
+## Compositions
 
 In this example we will learn what is *project composition* in NGC. In short, composition is just inheritance of multiple project templates
 ( parents ) for the same project.

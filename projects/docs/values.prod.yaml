@@ -1,1 +1,8 @@
 url: https://docs.nomocode.io
+deploy:
+  cloudflare:
+    dns:
+      record:
+        name: ngc-docs
+        type: CNAME
+        value: mellifluous-dasik-9ab126.netlify.app

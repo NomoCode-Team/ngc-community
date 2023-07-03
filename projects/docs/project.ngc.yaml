@@ -1,1 +1,3 @@
-from: scratch
+from:
+  - deploy/netlify
+  - deploy/cloudflare/dns

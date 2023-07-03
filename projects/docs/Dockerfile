@@ -6,3 +6,4 @@ RUN mkdocs build
 
 FROM nginx:1.21.6-alpine
 COPY --from=build /app/site /usr/share/nginx/html
+# ARTIFACTS /usr/share/nginx/html
