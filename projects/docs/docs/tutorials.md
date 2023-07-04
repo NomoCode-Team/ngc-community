@@ -205,3 +205,41 @@ from:
 Rebuild your project and see that all your images have been successfully loaded. In this case we composed our project with multiple parents - each
 one responsible to provide single image for our composition application. `from` keyword in *project.ngc.yaml* can be therefore a string
 or an array of strings in case of composition.
+
+## Overwriting files
+
+So far we have explored various ways of inheriting parent project templates into our projects. However, sometimes even the most flexible and useful project template doesn't really fit our requirements. Additionally, this template project is big enough we don't want to change it's
+current implementaion for just a single file that fails to meet our expectations. We don't necesserry need to abandom idea of using such
+project template and files ovewriting feature comes to rescue.
+
+Let's build upon our previous `composition` example project. Following instructions from the that previous tutorial add one more image into
+`composition-image3` project template and name it `image4.jpg`
+
+Now, we will of course update `index.html` file of `composition` project to render this additional image. The updated `index.html` file should
+look like below:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: blue">
+   <h1>Composition example</h1>
+   <img src="image1.jpg" />
+   <img src="image2.jpg" />
+   <img src="image3.jpg" />
+   <img src="image4.jpg" />
+</body>
+</html>
+```
+
+Rebuild the project and check if everything looks as expected and you can see four images rendered in our html page.
+
+Next, let us assume for our project `image4.jpg` is not really what we wanted to have but we also don't want to abandon `composition-image3`
+parent project as it still have a lot of usuful functionalities. If that is the case then we can just overwrite this single `image4.jpg` in
+`composition` project and still use `composition-image3` template project. To overwrite file we simply create a file with the same name inside
+our project. You can do so by opening console in `composition` project and execute:
+
+```bash
+wget https://picsum.photos/200/300 -O image4.jpg
+```
+
+Now when you rebuild `composition` project you should see that rendered `image4.jpg` comes from `composition` project and not from `composition-image3` - it has been overwritten in our project.
