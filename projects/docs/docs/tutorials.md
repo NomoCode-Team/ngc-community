@@ -243,3 +243,57 @@ wget https://picsum.photos/200/300 -O image4.jpg
 ```
 
 Now when you rebuild `composition` project you should see that rendered `image4.jpg` comes from `composition` project and not from `composition-image3` - it has been overwritten in our project.
+
+## Schema validation
+
+One of the rules derived from extreme programming methodology is early detection of failures, ideally at the compilation time to provide
+fast feedback loop for developers. NGC introduces schema validation for configuration values to enable type-safety checks and constrained
+input values in the `values.yaml` file. Moreover, JSON schema files serves as a documentation of values used by project and is utilized to
+render form for project values in dashboard. Therefore, every project template that is aimed to be highly re-useable should contain up-to-date
+validation schema.
+
+Let us create new project called `schema-example`. Within this project create `index.html.j2` file and fill it with the following content:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: white">
+   <h1>{{ msg }}</h1>
+</body>
+</html>
+```
+
+Build the project and check results. You should see empty white page because we didn't set `msg` value anywhere. This is not satisfying
+solution to us because we didn't receive any error and project built just fine even without `msg` value. This value is not that much important,
+but sometimes proper initialization of the value is critical for application to function properly. This is where JSON schema validation comes
+into play.
+
+Inside `schema-example` project root directory ( next to index.html.j2 file ) create `schema.json` file with the following content:
+
+```json
+{
+   "type": "object",
+   "properties": {
+      "msg": {
+         "title": "message",
+         "description": "header message displayed at home page",
+         "type": "string"
+      }
+   },
+   "required": ["msg"]
+}
+```
+
+In this file we have declared `msg` property as of type `string` and we added `title` and `description` to it. We also marked `msg` as required
+value through the `required` keyword.
+
+Now, try to rebuild project and this time you should see an error message explaining that `msg` value is required but missing. Create
+`values.yaml` file and define any message you would like to, for instance:
+
+```yaml
+msg: Schema validation example
+```
+
+This time you should be able to build your project and see the message when checking in web browser. The full course over JSON schema is
+out of the scope of this documentation. For more details you may refer to [official website](https://json-schema.org/) and/or any other tutorial
+you like.
