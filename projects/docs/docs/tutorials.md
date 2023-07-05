@@ -297,3 +297,36 @@ msg: Schema validation example
 This time you should be able to build your project and see the message when checking in web browser. The full course over JSON schema is
 out of the scope of this documentation. For more details you may refer to [official website](https://json-schema.org/) and/or any other tutorial
 you like.
+
+## Custom App image
+
+So far all examples were provided with default application image - Nginx server configured to be a static content HTTP server. It would be silly
+to think NGC supports only this. In fact, NGC does not care what programming language, framework or even tools you use. To allow such flexibility
+NGC relies on common standard to isolate running application processes - encapsulating them in OCI stardard images. In NGC this take a form of
+docker images and Dockerfiles - recipies for creating those images. So any given application can successfully be built and run by NGC if it can be
+containerized. This applies also for existing projects which you would like to bring to NGC workspace - if you have already a Dockerfile for your
+project, NGC will work with it out of the box.
+
+In this example we will create a new project with custom `Dockerfile` to see how you can work with other frameworks than just plain HTTP static
+server. We will use `Django` framework that is written in Python.
+
+First, create a new project called `custom-image` and then within this project create a `Dockerfile` file with the following content.
+
+```Dockerfile
+FROM python:3.11.4-alpine3.18
+RUN python -m pip install Django
+WORKDIR /
+RUN django-admin startproject app
+WORKDIR /app
+CMD python manage.py runserver 0.0.0.0:80
+```
+
+Now you can build the project and see in web browser that Django server is running and ready to start development. What we just did is we
+have overwritten default Dockerfile with our custom one so that NGC will pick it as a docker image recipe. This image is based on another
+docker image called `python:3.11.4-alpine3.18` which has already pre-installed Python 3.11. Next, we use `pip` module to install `Django`
+python libraries and after that with help of `django-admin` utility we create a new project called `app`. Finally with the last command
+we are starting simple development server available in Django framework.
+
+So you may see NGC uses `Docker` as it's containerization managment tool. For those unfamilliar with Docker please refer to the 
+[official reference for Dockerfile](https://docs.docker.com/engine/reference/builder/). You don't need to know everything what Docker engine
+offers but good understanding of `Dockerfile` is advised if you want to work with custom images.
