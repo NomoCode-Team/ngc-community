@@ -330,3 +330,51 @@ we are starting simple development server available in Django framework.
 So you may see NGC uses `Docker` as it's containerization managment tool. For those unfamilliar with Docker please refer to the 
 [official reference for Dockerfile](https://docs.docker.com/engine/reference/builder/). You don't need to know everything what Docker engine
 offers but good understanding of `Dockerfile` is advised if you want to work with custom images.
+
+## Workspace values
+
+Sometimes, configuration values are common across multiple projects. In such a case we would like to define them in a single place to avoid
+DRY code. To resolve this issue NGC allows to define values at a workspace level. Such values are available within every project
+of the workspace.
+
+Let us create simple *project template* called `parent`. Within this project template create `index.html.j2` file with the following content:
+
+```html
+<!DOCTYPE html>
+<html>
+<body style="background-color: white">
+   <h1>Hello {{ user }}! {{ msg }}</h1>
+</body>
+</html>
+```
+
+Now create project called `common-one` which will be based on `parent` project template. Additionally, create `values.yaml` file within this
+project but define only `msg` value within it.
+
+```yaml
+msg: Welcome to the first project
+```
+
+Create second project called `common-two`. Repeat steps like for `common-one` project but change `msg` value to be different. For example:
+
+```yaml
+msg: This is the second project
+```
+
+Finally, we will define a common value `user` at the workspace level. Create `values.yaml` file at the workspace root directory ( at the same 
+level where you see *libs* and *projects* directories ). Define `user` value there with your name or whatever name you would like:
+
+```yaml
+user: Charlie
+```
+
+Build project `common-one` and open web browser tab to see it. You should see a header message similar to *Hello Charlie! Welcome to the first project*. Now, build `common-two` project and check results. As you would notice your user name value is also rendered there, because - even if
+it is not defined in `common-two` project - it is taken from workspace `values.yaml` file.
+
+## Multi-App Project
+
+Up to now we have been dealing with a project that have only one application. Such a project is called *Single-App Project* in NGC. In the
+*Single-App Project* there is no distinction between project and application because project is application at the same time. However, the real
+world projects is a system of interconnected services that work together - frontend and backend services, HTTP servers, storages, databases
+and so on. In NGC project can take a form of multiple services communicating with each other and such project is called *Multi-App Project*.
+In this tutorial we will create such a project that will include simple frontend HTTP server and a backend service which clients can communicate with.
